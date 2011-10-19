@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "wt_spamshield".
 #
-# Auto generated 18-10-2011 17:32
+# Auto generated 19-10-2011 19:48
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -38,6 +38,8 @@ $EM_CONF[$_EXTKEY] = array(
 			'typo3' => '3.5.0-0.0.0',
 		),
 		'conflicts' => array(
+			'mf_akismet' => '0.0.0-9.9.9',
+			'wt_calculating_captcha' => '0.0.0-0.0.0',
 		),
 		'suggests' => array(
 		),
