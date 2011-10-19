@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>database</type>
+        <description>Language labels for database tables/fields belonging to extension 'wt_spamshield'</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tx_wtspamshield_log">Spamshield log</label>
+            <label index="tx_wtspamshield_log.form">Used Extension</label>
+            <label index="tx_wtspamshield_log.errormsg">Error message</label>
+            <label index="tx_wtspamshield_log.formvalues">Form values</label>
+            <label index="tx_wtspamshield_log.pageid">Form page id</label>
+            <label index="tx_wtspamshield_log.ip">IP address of sender</label>
+            <label index="tx_wtspamshield_log.useragent">User_Agent</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="tx_wtspamshield_log">Spamshield log</label>
+            <label index="tx_wtspamshield_log.form">Verwendete Extension</label>
+            <label index="tx_wtspamshield_log.errormsg">Fehlermeldung</label>
+            <label index="tx_wtspamshield_log.formvalues">Formular Daten</label>
+            <label index="tx_wtspamshield_log.pageid">Seiten ID (PID)</label>
+            <label index="tx_wtspamshield_log.ip">IP Adresse des Absenders</label>
+            <label index="tx_wtspamshield_log.useragent">User_Agent</label>
+        </languageKey>
+    </data>
+</T3locallang>
