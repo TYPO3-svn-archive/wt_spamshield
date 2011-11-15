@@ -22,7 +22,7 @@ $TCA['tx_wtspamshield_log'] = array (
 $TCA['tx_wtspamshield_blacklist'] = array (
     'ctrl' => array (
         'title'     => 'LLL:EXT:wt_spamshield/locallang_db.xml:tx_wtspamshield_blacklist',
-        'label'     => 'errormsg',
+        'label'     => 'value',
         'tstamp'    => 'tstamp',
         'crdate'    => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -32,7 +32,7 @@ $TCA['tx_wtspamshield_blacklist'] = array (
         'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY) . 'icon_tx_wtspamshield_log.gif',
     ),
     'feInterface' => array (
-        'fe_admin_fieldList' => 'whitelist, type',
+        'fe_admin_fieldList' => 'type, value',
     )
 );
 ?>

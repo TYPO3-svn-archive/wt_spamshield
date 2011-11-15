@@ -32,7 +32,7 @@ CREATE TABLE tx_wtspamshield_blacklist (
     deleted tinyint(4) DEFAULT '0' NOT NULL,
 
     whitelist tinyint(4) DEFAULT '0' NOT NULL,
-    type int(11) DEFAULT '0' NOT NULL,
+    type tinytext NOT NULL,
     value tinytext NOT NULL,
 
     PRIMARY KEY (uid),

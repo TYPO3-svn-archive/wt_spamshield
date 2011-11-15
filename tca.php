@@ -82,19 +82,19 @@ $TCA['tx_wtspamshield_log'] = array (
 );
 
 $TCA['tx_wtspamshield_blacklist'] = array (
-    'ctrl' => $TCA['tx_wtspamshield_log']['ctrl'],
+    'ctrl' => $TCA['tx_wtspamshield_blacklist']['ctrl'],
     'interface' => array (
         'showRecordFieldList' => 'type, value'
     ),
     'feInterface' => $TCA['tx_wtspamshield_log']['feInterface'],
     'columns' => array (
-        'whitelist' => Array (
+        /*'whitelist' => Array (
             'exclude' => 1,
             'label' => 'LLL:EXT:wt_spamshield/locallang_db.xml:tx_wtspamshield_blacklist.whitelist',
             'config' => Array (
                 'type' => 'check',
             )
-        ),
+        ),*/
 		'type' => array (
 			'exclude' => 0,
 			'label' => 'LLL:EXT:wt_spamshield/locallang_db.xml:tx_wtspamshield_blacklist.type',

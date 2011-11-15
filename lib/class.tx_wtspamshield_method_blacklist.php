@@ -49,7 +49,7 @@ class tx_wtspamshield_method_blacklist extends tslib_pibase {
 	private function isCurrentIPBlacklisted() {// Give me all fields in current fieldset, which are related to current content
 		$select = 'tx_wtspamshield_blacklist.uid';
 		$from = 'tx_wtspamshield_blacklist';
-		$where = 'tx_wtspamshield_blacklist.value LIKE "' . t3lib_div::getIndpEnv('REMOTE_ADDR') . '"';
+		$where = 'tx_wtspamshield_blacklist.value = "' . t3lib_div::getIndpEnv('REMOTE_ADDR') . '"';
 		$where .= ' AND tx_wtspamshield_blacklist.type = "ip"';
 		$where .= ' AND tx_wtspamshield_blacklist.whitelist = 0';
 		$where .= ' AND tx_wtspamshield_blacklist.deleted = 0';
@@ -95,7 +95,7 @@ class tx_wtspamshield_method_blacklist extends tslib_pibase {
 		foreach ($emails as $email) { // one query for every given email
 			$select = 'tx_wtspamshield_blacklist.uid';
 			$from = 'tx_wtspamshield_blacklist';
-			$where = 'tx_wtspamshield_blacklist.value LIKE "' . $email . '"';
+			$where = 'tx_wtspamshield_blacklist.value = "' . $email . '"';
 			$where .= ' AND tx_wtspamshield_blacklist.type = "email"';
 			$where .= ' AND tx_wtspamshield_blacklist.whitelist = 0';
 			$where .= ' AND tx_wtspamshield_blacklist.deleted = 0';
