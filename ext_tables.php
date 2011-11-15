@@ -1,6 +1,10 @@
 <?php
-if (!defined ('TYPO3_MODE')) die ('Access denied.');
-t3lib_extMgm::addStaticFile($_EXTKEY, 'static/', 'wt_spamshield standard mailform protection');
+if (!defined ('TYPO3_MODE')) {
+	die ('Access denied.');
+}
+
+t3lib_extMgm::addStaticFile($_EXTKEY, 'static/settings/', 'Main Settings');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'static/defaultmailform/', 'Default Mailform');
 
 $TCA['tx_wtspamshield_log'] = array (
     'ctrl' => array (
