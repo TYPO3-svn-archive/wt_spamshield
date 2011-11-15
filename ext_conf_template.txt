@@ -1,0 +1,29 @@
+# cat=basic//010; type=boolean; label= Use Name Check: This option enables (or disables) a name check. It's a very simple thing: If prename == lastname the post vars will be ignored
+useNameCheck = 1
+
+# cat=basic//020; type=int [0-100]; label= Use HTTP Check: This option enables (or disables) a check for the string http. If you want only to allow 3x http, enter 3 (0 disables this option complete)
+usehttpCheck = 3
+
+# cat=basic//030; type=text; label= Use unique check: Enter different field keys (commaseparated), which should not equal - firstname and lastname for powermail (e.g. uid1,uid2). You can add more conditions and split them with semicolon. If firstname uid1 should not be equal to address uid3 and lastname uid2 should not be equal to address uid3 but uid1 and uid2 could be the same (e.g. uid1,uid3[semicolon]uid2,uid3)
+notUnique = 
+
+# cat=basic//040; type=boolean; label= Use honeypod check: This option adds a non-visible input field, and if this field was filled out, than spam is recognized (e.g. 1)
+honeypodCheck = 1
+
+# cat=basic//050; type=boolean; label= Use Session Check: This option enables (or disables) a session check. If anyone enters the form page, a session-entry with timestamp is safed. If any POST vars are received, there must be a timestamp or nothing will be done
+useSessionCheck = 1
+
+# cat=basic//060; type=int [0-3600]; label= Session start time (s): Enter a start time in seconds as a difference which has been last since entering the form page (0 for disable)
+SessionStartTime = 10
+
+# cat=basic//070; type=int [0-3600]; label= Session end time (s): Enter an end time in seconds. When this time is over, no post vars will be accept (0 for disable)
+SessionEndTime = 600
+
+# cat=basic//080; type=text; label= Enter Akismet Key: Enter your free akismet key to activate akismet check (free signup on http://wordpress.com/signup/)
+AkismetKey = 
+
+# cat=basic//090; type=text; label= Send email if spam: Enter an email address if you would like to receive an email if spam was recognized (e.g. email@domain.org)
+email_notify = 
+
+# cat=basic//100; type=int; label= PID where to save logs: Enter any PID for saving spamlog entries (-2 save values in current page, -1 deactivate pid log, 0 save values in root page, 1 save value in pid1 and so on)
+pid = 0

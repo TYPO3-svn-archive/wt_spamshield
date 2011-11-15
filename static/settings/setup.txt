@@ -1,0 +1,21 @@
+plugin.wt_spamshield {
+
+	enable.standardMailform = {$plugin.wt_spamshield.mailform}
+	enable.powermail = {$plugin.wt_spamshield.powermail}
+	enable.ve_guestbook = {$plugin.wt_spamshield.ve_guestbook}
+	enable.comments = {$plugin.wt_spamshield.comments}
+	redirect.standardMailform = {$plugin.wt_spamshield.ve_guestbook}
+	redirect.ve_guestbook = {$plugin.wt_spamshield.ve_guestbook}
+
+	message {
+		blacklist = {$plugin.wt_spamshield.message.blacklist}
+		session.note1 = {$plugin.wt_spamshield.message.session1}
+		session.note2 = {$plugin.wt_spamshield.message.session2}
+		session.note3 = {$plugin.wt_spamshield.message.session3}
+		httpcheck = {$plugin.wt_spamshield.message.httpcheck}
+		uniquecheck = {$plugin.wt_spamshield.message.uniquecheck}
+		namecheck = {$plugin.wt_spamshield.message.namecheck}
+		akismet = {$plugin.wt_spamshield.message.akismet}
+		honeypod = {$plugin.wt_spamshield.message.honeypod}
+	}
+}
