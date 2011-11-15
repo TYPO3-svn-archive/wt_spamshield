@@ -84,7 +84,7 @@ $TCA['tx_wtspamshield_log'] = array (
 $TCA['tx_wtspamshield_blacklist'] = array (
     'ctrl' => $TCA['tx_wtspamshield_log']['ctrl'],
     'interface' => array (
-        'showRecordFieldList' => 'whitelist, type, value'
+        'showRecordFieldList' => 'type, value'
     ),
     'feInterface' => $TCA['tx_wtspamshield_log']['feInterface'],
     'columns' => array (
@@ -118,7 +118,7 @@ $TCA['tx_wtspamshield_blacklist'] = array (
         ),
     ),
     'types' => array (
-        '0' => array('showitem' => 'whitelist, type, value')
+        '0' => array('showitem' => 'type, value')
     ),
     'palettes' => array (
         '1' => array('showitem' => '')

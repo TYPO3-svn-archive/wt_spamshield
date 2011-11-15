@@ -23,6 +23,7 @@
 ***************************************************************/
 
 require_once(PATH_tslib . 'class.tslib_pibase.php');
+require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_blacklist.php');
 require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_session.php');
 require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_httpcheck.php');
 require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_namecheck.php');
@@ -91,25 +92,31 @@ class tx_wtspamshield_powermail extends tslib_pibase {
 			$this->div->spamshieldIsNotDisabled()
 		) {
 			
-			// 1a. sessionCheck
+			// 1a. blacklistCheck
+			if (!$error) {
+				$method_blacklist_instance = t3lib_div::makeInstance('tx_wtspamshield_method_blacklist'); // Generate Instance for session method
+				$error .= $method_blacklist_instance->checkBlacklist($sessiondata, $this->messages['blacklist']);
+			}
+
+			// 1b. sessionCheck
 			if (!$error) {
 				$method_session_instance = t3lib_div::makeInstance('tx_wtspamshield_method_session'); // Generate Instance for session method
 				$error .= $method_session_instance->checkSessionTime($this->messages['session.']['note1'], $this->messages['session.']['note2'], $this->messages['session.']['note3']);
 			}
 			
-			// 1b. httpCheck
+			// 1c. httpCheck
 			if (!$error) {
 				$method_httpcheck_instance = t3lib_div::makeInstance('tx_wtspamshield_method_httpcheck'); // Generate Instance for httpCheck method
 				$error .= $method_httpcheck_instance->httpCheck($sessiondata, $this->messages['httpcheck']);
 			}
 			
-			// 1c. uniqueCheck
+			// 1d. uniqueCheck
 			if (!$error) {
 				$method_unique_instance = t3lib_div::makeInstance('tx_wtspamshield_method_unique'); // Generate Instance for uniqueCheck method
 				$error .= $method_unique_instance->main($sessiondata, $this->messages['uniquecheck']);
 			}
 			
-			// 1d. honeypodCheck
+			// 1e. honeypodCheck
 			if (!$error) {
 				$method_honeypod_instance = t3lib_div::makeInstance('tx_wtspamshield_method_honeypod'); // Generate Instance for honeypod method
 				$method_honeypod_instance->inputName = $this->honeypod_inputName; // name for input field

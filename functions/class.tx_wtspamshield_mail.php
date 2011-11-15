@@ -121,8 +121,8 @@ class tx_wtspamshield_mail extends tslib_pibase {
 					$subject = 'Spam recognized in ' . $ext . ' on ' . t3lib_div::getIndpEnv('HTTP_HOST');
 					$headers = 'From: ' . $from;
 					$headers .= 'Reply-To: ' . $from;
-					t3lib_div::plainMailEncoded($to, $subject, $mailtext, $headers); // send plaintextmail
-					
+					//t3lib_div::plainMailEncoded($to, $subject, $mailtext, $headers); // send plaintextmail
+					mail($to, $subject, $mailtext, $headers); // send plaintextmail
 				}
 			}
 		}
