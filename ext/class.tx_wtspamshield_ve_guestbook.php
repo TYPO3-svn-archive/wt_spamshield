@@ -23,6 +23,7 @@
 ***************************************************************/
 
 require_once(PATH_tslib . 'class.tslib_pibase.php');
+require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_blacklist.php');
 require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_namecheck.php');
 require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_httpcheck.php');
 require_once(t3lib_extMgm::extPath('wt_spamshield') . 'lib/class.tx_wtspamshield_method_session.php');
@@ -89,32 +90,39 @@ class tx_wtspamshield_ve_guestbook extends tslib_pibase {
 			!empty($GLOBALS['TSFE']->tmpl->setup['plugin.']['wt_spamshield.']['enable.']['ve_guestbook']) &&
 			$this->div->spamshieldIsNotDisabled()
 		) {
-			// 1a. nameCheck
+
+			// 1a. blacklistCheck
+			if (!$error) {
+				$method_blacklist_instance = t3lib_div::makeInstance('tx_wtspamshield_method_blacklist'); // Generate Instance for session method
+				$error .= $method_blacklist_instance->checkBlacklist($form, $this->messages['blacklist']);
+			}
+
+			// 1b. nameCheck
 			if (!$error) {
 				$method_namecheck_instance = t3lib_div::makeInstance('tx_wtspamshield_method_namecheck'); // Generate Instance for namecheck method
 				$error .= $method_namecheck_instance->nameCheck($form['firstname'], $form['surname'], $this->messages['namecheck']);
 			}
 			
-			// 1b. httpCheck
+			// 1c. httpCheck
 			if (!$error) {
 				$method_httpcheck_instance = t3lib_div::makeInstance('tx_wtspamshield_method_httpcheck'); // Generate Instance for http method
 				$error .= $method_httpcheck_instance->httpCheck($form, $this->messages['httpcheck']);
 			}
 			
-			// 1c. sessionCheck
+			// 1d. sessionCheck
 			if (!$error) {
 				$method_session_instance = t3lib_div::makeInstance('tx_wtspamshield_method_session'); // Generate Instance for session method
 				$error .= $method_session_instance->checkSessionTime($this->messages['session.']['note1'], $this->messages['session.']['note2'], $this->messages['session.']['note3']);
 			}
 			
-			// 1d. honeypodCheck
+			// 1e. honeypodCheck
 			if (!$error) {
 				$method_honeypod_instance = t3lib_div::makeInstance('tx_wtspamshield_method_honeypod'); // Generate Instance for honeypod method
 				$method_honeypod_instance->inputName = $this->honeypod_inputName; // name for input field
 				$error .= $method_honeypod_instance->checkHoney($form, $this->messages['honeypod']);
 			}
 			
-			// 1e. Akismet Check
+			// 1f. Akismet Check
 			if (!$error) {
 				$method_akismet_instance = t3lib_div::makeInstance('tx_wtspamshield_method_akismet'); // Generate Instance for Akismet method
 				$error .= $method_akismet_instance->checkAkismet($form, $this->messages['akismet']);
