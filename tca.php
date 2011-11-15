@@ -78,4 +78,27 @@ $TCA['tx_wtspamshield_log'] = array (
         '1' => array('showitem' => '')
     )
 );
+
+$TCA['tx_wtspamshield_blacklist'] = array (
+    'ctrl' => $TCA['tx_wtspamshield_log']['ctrl'],
+    'interface' => array (
+        'showRecordFieldList' => 'whitelist'
+    ),
+    'feInterface' => $TCA['tx_wtspamshield_log']['feInterface'],
+    'columns' => array (
+        'whitelist' => Array (
+            'exclude' => 1,
+            'label' => 'LLL:EXT:wt_spamshield/locallang_db.xml:tx_wtspamshield_blacklist.whitelist',
+            'config' => Array (
+                'type' => 'check',
+            )
+        ),
+    ),
+    'types' => array (
+        '0' => array('showitem' => 'whitelist')
+    ),
+    'palettes' => array (
+        '1' => array('showitem' => '')
+    )
+);
 ?>
