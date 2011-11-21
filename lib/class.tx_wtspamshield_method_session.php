@@ -31,11 +31,19 @@ class tx_wtspamshield_method_session extends tslib_pibase {
 	/**
 	 * Set Timestamp in session (when the form is rendered)
 	 *
+	 * @param boolean $forceValue Whether to force setting the timestampe in the session
 	 * @return	void
 	 */
-	function setSessionTime() {
-		$GLOBALS['TSFE']->fe_user->setKey('ses', 'wt_spamshield_form_tstamp', time()); // write timestamp to session
-		$GLOBALS['TSFE']->storeSessionData(); // store session
+	function setSessionTime($forceValue = TRUE) {
+		$conf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]); // Get backend configuration of this extension
+
+		$timeStamp = intval($GLOBALS['TSFE']->fe_user->getKey('ses', 'wt_spamshield_form_tstamp'));
+		$isOutdated = ($timeStamp + $conf['SessionEndTime'] < time());
+
+		if ($forceValue || $isOutdated) {
+			$GLOBALS['TSFE']->fe_user->setKey('ses', 'wt_spamshield_form_tstamp', time()); // write timestamp to session
+			$GLOBALS['TSFE']->storeSessionData(); // store session
+		}
 	}
 	
 	/**

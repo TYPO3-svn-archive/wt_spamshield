@@ -29,7 +29,7 @@ plugin.wt_spamshield {
 	message.session1 = Sorry, but you have waited too long to send form values
 
 	# cat=wt_spamshield main//0320; type=text; label= Message Session 2: Message for Session 2
-	message.session1 = Please wait some seconds before sending form
+	message.session2 = Please wait some seconds before sending form
 
 	# cat=wt_spamshield main//0330; type=text; label= Message Session 3: Message for Session 3
 	message.session3 = No tstamp set in session

@@ -17,6 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ve_guestbook']['preEntryInsertHook'][] =
 
 // Hook standard mailform: Disabling email
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['sendFormmail-PreProcClass'][] = 'EXT:wt_spamshield/ext/class.tx_wtspamshield_defaultmailform.php:tx_wtspamshield_defaultmailform';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form/Classes/Controller/Form.php']['showForm'][] = 'EXT:wt_spamshield/ext/class.tx_wtspamshield_defaultmailform.php:tx_wtspamshield_defaultmailform->handleSystemExtensionForm';
 
 // Hook tx_comments: Generating Form
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['comments']['form'][] = 'EXT:wt_spamshield/ext/class.tx_wtspamshield_comments.php:tx_wtspamshield_comments->form';
