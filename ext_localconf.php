@@ -25,4 +25,7 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['comments']['form'][] = 'EXT:wt_spamshiel
 // Hook tx_comments: Generating Form
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['comments']['externalSpamCheck'][] = 'EXT:wt_spamshield/ext/class.tx_wtspamshield_comments.php:tx_wtspamshield_comments->externalSpamCheck';
 
+// Hook ke_userregister: Giving error to ke_userregister
+$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tx_keuserregister']['specialEvaluations'][] = 'EXT:wt_spamshield/ext/class.tx_wtspamshield_ke_userregister.php:tx_wtspamshield_ke_userregister';
+
 ?>
