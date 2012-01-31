@@ -4,7 +4,7 @@ plugin.wt_spamshield {
 	enable.powermail = {$plugin.wt_spamshield.powermail}
 	enable.ve_guestbook = {$plugin.wt_spamshield.ve_guestbook}
 	enable.comments = {$plugin.wt_spamshield.comments}
-	redirect.standardMailform = {$plugin.wt_spamshield.ve_guestbook}
+	redirect.standardMailform = {$plugin.wt_spamshield.redirect_mailform}
 	redirect.ve_guestbook = {$plugin.wt_spamshield.ve_guestbook}
 
 	message {
