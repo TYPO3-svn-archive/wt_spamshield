@@ -84,7 +84,7 @@ class tx_wtspamshield_ve_guestbook extends tslib_pibase {
 		$error = ''; // no error at the beginning
 		$form = t3lib_div::GPvar('tx_veguestbook_pi1'); // get POST vars
 		$this->div = t3lib_div::makeInstance('tx_wtspamshield_div'); // Generate Instance for div method
-		$this->messages = $GLOBALS['TSFE']->tmpl->setup['wt_spamshield.']['message.']; // get messages from Backend
+		$this->messages = $GLOBALS['TSFE']->tmpl->setup['plugin.']['wt_spamshield.']['message.']; // get messages from Backend
 		
 		if ( // only if enabled for current page
 			!empty($GLOBALS['TSFE']->tmpl->setup['plugin.']['wt_spamshield.']['enable.']['ve_guestbook']) &&
