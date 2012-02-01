@@ -11,7 +11,7 @@ CREATE TABLE tx_wtspamshield_log (
     
     form tinytext NOT NULL,
     errormsg text NOT NULL,
-    pageid tinyint(5) DEFAULT '0' NOT NULL,
+    pageid int(11) DEFAULT '0' NOT NULL,
     formvalues text NOT NULL,
     ip tinytext NOT NULL,
     useragent tinytext NOT NULL,
